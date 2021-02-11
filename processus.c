@@ -51,7 +51,25 @@ int exec_processus(processus_t *proc){
     //Retourner la valeur de retour de cd
     return proc->status=cd(proc->argv[1]);
   }
+ 
+   else if(strcmp(proc->argv[0],"export")==0){
+    //Déclaration d'une chaine constant
+    const char *str;
+    str = (char *)malloc(MAX_ARGS);
 
+    //Découper la chaine par le mot "=" pour récupérer le variable
+    str =strtok(proc->argv[1],"=");
+    const char *arg[50];
+    int i=0;
+     while(str != NULL){
+        arg[i]=str;
+       str=strtok(NULL,"=");
+       i++;
+     }
+     //Retourner la valeur de retour de export
+     return export(arg[1]);
+
+  }
   else if(strcmp(proc->argv[0],"unset")==0){
 
     proc->argv[1]="VAR";
