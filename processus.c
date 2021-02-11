@@ -65,7 +65,7 @@ int exec_processus(processus_t *proc){
   }
   else if(strcmp(proc->argv[0],"exit")==0 ){
     //Retourner la valeur de retour de exit
-    return exit_(atoi(proc->argv[1]),1,2);
+    return exit_(1,1,2);
   }
   else if(strcmp(proc->argv[0],getenv("PWD"))==0 ){
     //Retourner la valeur de retour de cwd
@@ -103,7 +103,12 @@ else{
     //Dans le cas d'échec de execvp(ne connait pas la commande entrée) affecter 1 à val
     val=1;
   }
+ 
+ if(proc->bg==0){
 
+    waitpid(proc->pid,&proc->status,0);
+
+  }
 
   wait(NULL);
   //Dans le cas d'échec de execvp Retourner un erreur
