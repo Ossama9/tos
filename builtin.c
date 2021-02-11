@@ -31,7 +31,27 @@ int  r=chdir(path);
   }
 
 }
+/*
+  Fonction export : Permet de propager une variable "au dela" du programme ou
+              du terminal dans laquelle elle a été créé
+      Paramètre env : variable d'environnemnt
+      Retourne 0 en cas de succés, une autre valeur en cas d'échec
+ */
+int export(const char *env){
 
+  //Déclaration d'un variable VAR
+ const char *var= "VAR";
+
+ //affecter Var par le contenu d'un variable d'environnemnt(env)
+ if(setenv(var,env,1)==0){
+
+   //Affichage comme titre d'information
+   printf("VAR = %s\n",getenv(var));
+   return 0;
+ }else{
+return 1;
+}
+}
 
 
 
