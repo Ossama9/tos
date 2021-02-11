@@ -6,6 +6,8 @@
 
 int cd(const char* path);
 
+int export(const char* env);
+
 int unset(const char* env, int fderr);
 
 int env(int fdout, int fderr);
