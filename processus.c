@@ -1,6 +1,3 @@
- 
-
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -51,8 +48,7 @@ int exec_processus(processus_t *proc){
     //Retourner la valeur de retour de cd
     return proc->status=cd(proc->argv[1]);
   }
- 
-   else if(strcmp(proc->argv[0],"export")==0){
+  else if(strcmp(proc->argv[0],"export")==0){
     //Déclaration d'une chaine constant
     const char *str;
     str = (char *)malloc(MAX_ARGS);
@@ -121,13 +117,12 @@ else{
     //Dans le cas d'échec de execvp(ne connait pas la commande entrée) affecter 1 à val
     val=1;
   }
- 
- if(proc->bg==1){
+
+if(proc->bg==1){
 
     waitpid(proc->pid,&proc->status,0);
 
   }
-
   wait(NULL);
   //Dans le cas d'échec de execvp Retourner un erreur
   if(val==1){
@@ -138,4 +133,3 @@ else{
 }
 
 }
-
