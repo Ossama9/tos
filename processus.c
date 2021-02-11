@@ -104,7 +104,7 @@ else{
     val=1;
   }
  
- if(proc->bg==0){
+ if(proc->bg==1){
 
     waitpid(proc->pid,&proc->status,0);
 
