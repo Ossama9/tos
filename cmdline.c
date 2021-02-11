@@ -197,7 +197,7 @@ int exec_cmdline(processus_t *proc){
       proc = proc->next;
       continue;
     }
-    //Pour l'opérateur "&"
+    //Pour l'opérateur "&&"
     if(proc->next_succes != NULL){
       if(WEXITSTATUS(proc->status)==0){
         proc = proc->next_succes;
