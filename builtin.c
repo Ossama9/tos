@@ -84,11 +84,14 @@ int unset(const char *env,int fderr){
 int env(int fdout,int fderr){
 
     extern char **environ;
+          printf("\n");
     for(int i=0;environ[i];++i){
+      printf("\n");
     int  w=write(fdout,environ[i],strlen(environ[i])*sizeof(*environ[i]));
 
     if(w<0){
       write(fderr,"Erreur au niveau de la recuperation des variables d'environnemnt\n",strlen("Erreur au niveau de la recuperation des variables d'environnemnt\n"));
+      printf("\n");
       return 1;
     }
 
