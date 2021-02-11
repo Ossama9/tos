@@ -127,9 +127,9 @@ int init_process(processus_t *proc,char *tokens[]){
         //Vérifier si la commande contient "&"
         if(strcmp(tokens[i],"&")==0){
           //affecter 1 à bg pour l'Exécuter en arrière plan
-          // proc[proc_id].bg=1;
-          // ++i;
-          // continue;
+           proc[proc_id].bg=1;
+           ++i;
+           continue;
 
         }
         //Vérifier si la commande contient "&&"
