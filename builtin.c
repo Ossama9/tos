@@ -31,6 +31,7 @@ int  r=chdir(path);
   }
 
 }
+
 /*
   Fonction export : Permet de propager une variable "au dela" du programme ou
               du terminal dans laquelle elle a été créé
